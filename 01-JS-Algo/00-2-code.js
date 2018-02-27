@@ -1,8 +1,64 @@
-console.log("Hello from the CODE.JS File...");
+console.log("\nHello from the CODE.JS File... \n\n");
 
-let arr1 = [1, 2, 3, 4, 5, 6]
-console.log(arr1, " .\n")
 
-let arr2 = arr1.map( (x) => { return x * 2 } )
+let arr1 = ['apple', 'orange', 'apple', 'orange', 'pear', 'orange'];
 console.log(arr1)
-console.log(arr2)
+console.log(" ")
+
+
+let temp1 = arr1.reduce( (pv, cv) => {
+    pv[cv] = (pv[cv] + 1) || 1
+    return pv
+}, {})
+
+
+console.log(temp1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// arr1.map( (chiken, potatoe) => {
+//
+//     console.log("C value: ", chiken)
+//     console.log("I value: ", potatoe)
+//     // console.log("A value: ", lion)
+//     console.log("------------------")
+//
+// } )
+
+
+
+
