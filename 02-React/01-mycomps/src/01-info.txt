@@ -1,0 +1,57 @@
+----------------------------------------------------------------------
+    // Index.js
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App.jsx';
+
+ReactDOM.render(<App />, document.getElementById('root'));
+
+
+
+----------------------------------------------------------------------
+    // App.jsx
+
+import './App.css';
+import Individual from './Individual'
+
+
+export default class App extends Component {
+
+  exe1(){
+    let singers = [ 'Ayumi Hamasaki', 'Sistar', 'Exid', 'Taeyang']
+    return singers.map((x) => { return <Individual name={x} /> })
+  }
+  
+
+  render() {
+
+    
+    return (
+      <div className="App">
+        <h1>Hello...</h1>
+        { this.exe1() }
+      </div>
+    )
+  }
+}
+
+
+
+----------------------------------------------------------------------
+    // Individual.jsx
+
+import React, { Component } from 'react'
+
+export default class extends Component{
+    render(){
+        return(
+            <div>
+                <p>Singer Name: { this.props.name }</p>
+            </div>
+        )
+    }
+}
+
+
+----------------------------------------------------------------------
