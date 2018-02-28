@@ -1,19 +1,23 @@
 import React, { Component } from 'react';
 import './App.css';
-
+import Individual from './Individual'
 
 
 export default class App extends Component {
 
+  exe1(){
+    let singers = [ 'Ayumi Hamasaki', 'Sistar', 'Exid', 'Taeyang']
+    return singers.map((x) => { return <Individual name={x} /> })
+  }
   
 
   render() {
 
-    let singers = [ {name: 'Ayumi Hamasaki', coountry: 'Japan'}, 'sistar']
+    
     return (
       <div className="App">
         <h1>Hello...</h1>
-        <p>Name: { singers[0].coountry }</p>
+        { this.exe1() }
       </div>
     )
   }
