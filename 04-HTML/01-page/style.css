@@ -6,3 +6,16 @@ body{
 div{
     text-align: center;
 }
+
+#main-menu{
+    list-style-type: none;
+    border: 1px solid black;
+    display: flex;
+}
+
+.menu-item{
+    border: 2px solid black;
+    padding: 4px;
+    margin: 1px;
+    background-color: blueviolet;
+}
