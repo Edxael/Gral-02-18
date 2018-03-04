@@ -11,8 +11,6 @@ export default class extends React.Component{
                         .filter( (x) => { return x.party === "Republican" } )
                         .map( (z) => { return <Profile key={z.phone} info={z} /> } )
 
-        console.log(toPrint);
-
         return toPrint
         
     }
