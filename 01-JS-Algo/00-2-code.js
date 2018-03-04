@@ -1,19 +1,22 @@
 console.log("\nHello from the CODE.JS File... \n\n");
 
+// Find the duplicated number in the given array
 
-let arr1 = ['apple', 'orange', 'apple', 'orange', 'pear', 'orange'];
-console.log(arr1)
-console.log(" ")
-
-
-let temp1 = arr1.reduce( (pv, cv) => {
-    pv[cv] = (pv[cv] + 1) || 1
-    return pv
-}, {})
+const myArr = [1, 2, 3, 4, 7, 5, 6, 8, 2, 9, 10, 11, ]
+console.log(myArr)
 
 
-console.log(temp1)
 
+const dup = (arr) => {
+    return arr
+            .map( (c, i, a) => { if(i !== a.indexOf(c)) { return `The duplicated is: ${c}` } } )
+            .filter((f) => { return f !== undefined })
+            .reduce( (r) => { return r } )
+}
+
+
+
+console.log(dup(myArr))
 
 
 
