@@ -4,8 +4,10 @@ export default class extends React.Component{
     render(){
         return(
             <div>
-                <p>Testing</p>
-                <h3>{this.props.info.phone}</h3>
+                <hr/>
+                <h3>Senator</h3>
+                <p>Name: { this.props.info.person.name }</p>
+                
             </div>
         )
     }
