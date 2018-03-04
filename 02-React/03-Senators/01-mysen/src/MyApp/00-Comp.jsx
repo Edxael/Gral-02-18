@@ -26,8 +26,3 @@ export default class extends React.Component{
         )
     }
 }
-
-// z.person.name
-
-// .filter( (x) => { return x.party.match('Republican') } )
-// .map( (z) => { return <Profile info={Data} /> } )
