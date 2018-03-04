@@ -9,8 +9,6 @@ export default class extends React.Component{
         // console.log( DataFilters.basicData() )
         // console.log( DataFilters.byState("FL") )
         console.log( DataFilters.myStateSr() )
-        
-        
     }
 
     render(){
