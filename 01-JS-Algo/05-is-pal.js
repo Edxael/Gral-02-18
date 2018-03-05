@@ -13,4 +13,12 @@ const isPal = (str) => {
 }
 
 // -----------------------------------------------------
+// Madam Im Adam
 
+const isPal = (str) => {
+    return str.toLowerCase().split(' ').join('') === str.split('').filter((x) => { return x !== ' ' }).reverse().join('').toLowerCase()
+}
+
+console.log( isPal('Madam Im Adam') )
+
+// -----------------------------------------------------
