@@ -6,10 +6,8 @@ console.log("\nHello from the CODE.JS File... \n\n");
 const word = 'Helio Training'
 
 const myReverse = (str) => { 
-    return str.split('').reverse().join('')
+    return str.split('').reduce( (pv, cv) => { return cv + pv }, '' )
  }
-
-
 
  console.log( "The function returns: ", myReverse(word) )
 
