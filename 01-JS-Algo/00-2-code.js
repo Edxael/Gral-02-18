@@ -1,11 +1,17 @@
 console.log("\nHello from the CODE.JS File... \n\n");
 
+
 // Create a function that receives a string and returns the string reversed. 
 
 const word = 'Helio Training'
-console.log(typeof word)
+
+const myReverse = (str) => { 
+    return str.split('').reverse().join('')
+ }
 
 
+
+ console.log( "The function returns: ", myReverse(word) )
 
 
 
