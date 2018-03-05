@@ -1,15 +1,10 @@
 console.log("\nHello from the CODE.JS File... \n\n");
 
+const myFizz = (num) => {
+    return num
+}
 
-// Create a function that receives a string and returns the string reversed. 
-
-const word = 'Helio Training'
-
-const myReverse = (str) => { 
-    return str.split('').reduce( (pv, cv) => { return cv + pv }, '' )
- }
-
- console.log( "The function returns: ", myReverse(word) )
+console.log( myFizz(12) )
 
 
 
