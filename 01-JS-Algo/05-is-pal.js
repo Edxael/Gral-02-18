@@ -1,3 +1,5 @@
+// -----------------------------------------------------
+// Return true if the word is palindrome.
 
 const isPal = (str) => {
     return str === str.split('').reverse().join('')

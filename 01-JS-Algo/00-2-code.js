@@ -1,8 +1,12 @@
 console.log("\nHello from the CODE.JS File... \n\n");
 
-const isPal = (str) => {
-    return str.toLowerCase().split(' ').join('') === str.split('').filter((x) => { return x !== ' ' }).reverse().join('').toLowerCase()
+const RNote = (note, magazine) => {
+    return note + magazine
 }
 
-console.log( isPal('Madam Im Adam') )
+const str1 = 'game on'
+const str2 = 'one more gallon'
+
+console.log( str1, str2  )
+
 
