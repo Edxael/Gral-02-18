@@ -14,3 +14,13 @@ const myFizz = (num) => {
 }
 
 console.log( myFizz(25) )
+
+// ---------------------------------------------------
+
+const myFizz = (num) => {
+    for(let x = 1; x <= num; x++){
+        if(x)
+    }
+}
+
+console.log( myFizz(25) )
