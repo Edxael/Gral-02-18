@@ -7,6 +7,7 @@ console.log( isPal('ella') )
 
 
 // -----------------------------------------------------
+// Working with case sensitivity
 
 const isPal = (str) => {
     return str.toLowerCase() === str.split('').reverse().join('').toLowerCase()
