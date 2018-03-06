@@ -1,0 +1,18 @@
+Turn On & Off Bluetooth via Command Line in Linux Mint (Ubuntu) :
+How to turn On-Off Bluetooth via Command-line (not applet) in Linux Mint (Ubuntu) :
+
+Command to check current status of Bluetooth :
+sudo /etc/init.d/bluetooth status
+
+Command to stop Bluetooth :
+sudo /etc/init.d/bluetooth stop
+
+To restart or start Bluetooth :
+sudo /etc/init.d/bluetooth start
+ 
+sudo /etc/init.d/bluetooth restart
+
+
+---------------------
+from:  
+http://linuxforever.info/
