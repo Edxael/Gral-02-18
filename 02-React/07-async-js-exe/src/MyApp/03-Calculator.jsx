@@ -22,7 +22,8 @@ const add = async (...values) => {
  * @returns {Promise<Number>}
  */
 const subtract = async (...values) => {
-    const calculation = values.reduce( (pv, cv) => { return pv - cv }, 0 )
+    const mypv = values.shift()
+    const calculation = values.reduce( (pv, cv) => { return pv - cv }, mypv )
     return Promise.resolve(calculation)
 }
 

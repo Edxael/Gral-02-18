@@ -20,7 +20,7 @@ export default class extends React.Component{
         console.log("From Calculator")
         
         // const data2 = await MyMath.add(1, 2, 3, 4)
-        const data2 = await MyMath.subtract(1, 2, 1)
+        const data2 = await MyMath.subtract(3, 2, 3, 2)
         console.log(data2)
     }
 
