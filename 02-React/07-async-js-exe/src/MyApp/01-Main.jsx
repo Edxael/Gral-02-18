@@ -17,12 +17,11 @@ export default class extends React.Component{
 
 
     runCalculator = async () => {
-        console.log("From Calculator");
+        console.log("From Calculator")
         
         // const data2 = await MyMath.add(1, 2, 3, 4)
         const data2 = await MyMath.subtract(1, 2, 1)
-        console.log(data2);
-        
+        console.log(data2)
     }
 
 
