@@ -8,8 +8,7 @@
  * @returns {Promise<Number>}
  */
 const add = async (...values) => {
-    const calculation = values.reduce( (pv, cv) => { return pv + cv }, 0 )
-    return Promise.resolve(calculation)
+    return values.reduce((pv, cv) => { return pv + cv }, 0)
 }
 
 /**
@@ -22,16 +21,26 @@ const add = async (...values) => {
  * @returns {Promise<Number>}
  */
 const subtract = async (...values) => {
-    const mypv = values.shift()
-    const calculation = values.reduce( (pv, cv) => { return pv - cv }, mypv )
-    return Promise.resolve(calculation)
+
+    console.log( values )
+    const fistValue = values.shift()
+
+
+
+    console.log( values )
+    console.log( fistValue )
+
+    return values.reduce( (pv, cv) => { return pv - cv }, fistValue )
+    
+
+     
 }
 
 /**
  * Export out the add, and subtract
  */
 export default {
-    add, subtract
+   add, subtract
 }
 
 
