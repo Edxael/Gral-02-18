@@ -8,8 +8,8 @@ export default class extends React.Component{
     runPromise = async () => {
         console.log('Runing Promise')
         
-        // const data1 = await MyProm.resolvingValues("Elena")
-        // const data1 = await MyProm.rejectedPromise("Elena")
+        // const data1 = await MyProm.resolvingValues("Edmundo")
+        // const data1 = await MyProm.rejectedPromise("Edmundo")
         const data1 = await MyProm.conditionallyReject(-1)
 
         console.log( data1 )
