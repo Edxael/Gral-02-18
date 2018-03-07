@@ -21,7 +21,7 @@ export default class extends React.Component{
     showData = () => {
         console.log('Execting ShowData()')
         console.log( "State.Movs: ", this.state.movies );
-        return this.state.movies.map( (film) => { return <h4 key={film.title} >Movie: { film.title }</h4> } )
+        return this.state.movies.map( (film) => { return <div key={film.title} > <strong>Movie: </strong> { film.title }</div> } )
     }
 
 
