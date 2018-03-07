@@ -40,11 +40,3 @@ export default class extends React.Component{
         )
     }
 }
-
-
-// const data1 = await fetch(myURL, {method: "GET"})
-// const data2 = await data1.json()
-                
-// await console.log(data2);
-
-// .then((x) => { return x.json() })
