@@ -32,3 +32,10 @@ const subtract = async (...values) => {
 export default {
     add, subtract
 }
+
+
+
+// Note:
+// A variadic function is a function where the total number of parameters 
+// are unknown but those parameters can be utilize as an array with the 
+// spread operator. 
