@@ -32,8 +32,6 @@ const subtract = async (...values) => {
 
     return values.reduce( (pv, cv) => { return pv - cv }, fistValue )
     
-
-     
 }
 
 /**
