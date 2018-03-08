@@ -1,11 +1,11 @@
 import React from 'react'
-import * as MyMath from './Math/calc.js'
+import MyMath from './Math/calc.js'
 
 export default class extends React.Component{
 
     Exe1(){
         console.log("Hello from Exe1");
-        console.log( MyMath.add(2, 3) )
+        console.log( MyMath(2, 7) )
     }
 
     render(){
