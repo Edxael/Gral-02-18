@@ -10,7 +10,11 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "mocha",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "code": "^5.2.0",
+    "mocha": "^5.0.4"
   }
 }
