@@ -1,0 +1,12 @@
+
+npm code GitHub repository: 
+https://github.com/hapijs/code
+
+
+npm code API REFERENCE:
+https://github.com/hapijs/code/blob/master/API.md
+
+
+Location of the library on NPM:
+https://www.npmjs.com/package/code
+
