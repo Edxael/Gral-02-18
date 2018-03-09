@@ -1,10 +1,15 @@
 import React from 'react'
+import { Header, Footer } from './MatComps/00-MyExports'
 
 export default class extends React.Component{
     render(){
         return(
             <div>
-                <h1>Hello from the Main Component</h1>
+                <p>Hello from the Main comp</p>
+
+                <Header />
+                <Footer />
+
             </div>
         )
     }

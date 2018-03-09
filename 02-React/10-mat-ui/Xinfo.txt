@@ -2,3 +2,6 @@
 
 Im usig the version: Material UI NEXT 
 https://material-ui-next.com/
+
+After click start you will be redirected to the following page: 
+https://material-ui-next.com/getting-started/installation/
