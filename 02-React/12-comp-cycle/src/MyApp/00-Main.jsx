@@ -5,6 +5,8 @@ export default class extends React.Component{
         return(
             <div>
                 <h1>Hello from the Main Component</h1>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex illum cumque, doloribus iste minima dolorem veritatis tempore non facere esse natus nam ad nesciunt aperiam, incidunt, commodi laboriosam atque quas?</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, consectetur dolorum ipsum modi dolore fugit dignissimos quibusdam ea provident, eligendi quia laborum voluptate nam, molestiae nulla maiores dolorem debitis recusandae!</p>
             </div>
         )
     }
