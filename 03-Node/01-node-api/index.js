@@ -62,9 +62,6 @@ server.post("/user", (req, res, next) => {
 // Update User
 server.put("/user/:id", (req, res, next) => {
 
-    console.log("req.params.id: ", req.params.id)
-    console.log( users[req.params.id] )
-
     let user = users[ req.params.id ]
     let updates = req.body
 
@@ -77,9 +74,18 @@ server.put("/user/:id", (req, res, next) => {
     res.end(JSON.stringify(user))
     
 	return next()
-});
+})
 
-// ******************************************
+// Delete a user by ID
+server.del("/user/:id", (req, res, next) => {
+    delete users[ req.params.id ]
+    res.setHeader('content-type', 'aplication/json')
+    res.writeHead(200)
+    res.end( JSON.stringify( true ) )
+    return next()
+})
+
+// *******************************************
 
 
 
