@@ -55,12 +55,6 @@ server.post("/user", (req, res, next) => {
 	res.setHeader('content-type', 'application/json')
 	res.writeHead(200)
     res.end(JSON.stringify(user))
-
-    console.log("Manual all: ", users)
-    console.log(" ")
-    console.log("Single: ", users["1"])
-    console.log(" -------------------- ")
-    console.log(" ")
     
 	return next()
 });
@@ -72,33 +66,15 @@ server.put("/user/:id", (req, res, next) => {
     console.log( users[req.params.id] )
 
     let user = users[ req.params.id ]
-    console.log(" ")
     let updates = req.body
 
-    // console.log("Manual all: ", users)
-    // console.log(" ")
-
-    // console.log("User: ", user)
-    console.log("Updates: ", updates)
-    console.log(" ")
-
     for( z in updates ){
-
-        console.log("Uaser.: ",user[z])
-        console.log("Update: ",updates[z])
-        
         user[z] = updates[z]
     }
-
-    console.log(" ")
     
 	res.setHeader('content-type', 'application/json')
 	res.writeHead(200)
     res.end(JSON.stringify(user))
-
-    console.log( users[req.params.id] )
-    console.log(" ")
-    console.log(" ******************* ")
     
 	return next()
 });
