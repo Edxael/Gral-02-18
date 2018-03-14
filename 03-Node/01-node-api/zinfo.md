@@ -3,6 +3,9 @@
 Location of the barebones:
 http://restify.com/docs/home/
 
+Restify cheat-seet:
+https://gist.github.com/LeCoupa/0664e885fd74152d1f90
+
 BareBones: in index.js
 
 ------------------------------------------------------
