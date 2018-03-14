@@ -56,7 +56,7 @@ server.use(restify.plugins.bodyParser());
 
 2. Replace req.params with req.body
 
-  - - - - - - - - - - - -
+  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
   CODE
 
 var restify = require('restify');
