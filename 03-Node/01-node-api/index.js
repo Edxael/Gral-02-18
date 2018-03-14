@@ -2,14 +2,14 @@ const restify = require('restify')
 
 
 const respond = (req, res, next) => {
-  res.send('hello ' + req.params.name)
+  res.send('Buenos Dias: ' + req.params.name)
   next()
 }
 
 
 const server = restify.createServer()
-server.get('/hello/:name', respond)
-server.head('/hello/:name', respond)
+server.get('/MyGET/:name', respond)
+server.post('/MyPOST/:name', respond)
 
 
 server.listen(5000, () => {
