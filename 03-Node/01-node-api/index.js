@@ -1,3 +1,25 @@
+// ------- FUNCTIONS FOR DRY CODE ---------
+const respond = ( res, next, status, data, http_code ) => {
+    let response = {
+        'status': status,
+        'data': data
+    }
+    res.setHeader('content-type', 'aplication/json')
+    res.writeHead(http_code)
+    res.end(JSON.stringify(response))
+    return next()
+}
+
+const success = (res, next, data) => {
+    respond(res, next, 'success', data, 200)
+}
+
+const failure = (res, next, data, http_code) => {
+    respond(res, next, 'failure', data, http_code)
+}
+
+
+// ------- IMPORTING ---------
 const restify = require('restify')
 const server = restify.createServer()
 
@@ -25,23 +47,20 @@ server.use(restify.plugins.queryParser())
 server.use(restify.plugins.bodyParser())
 
 
+
+
+
 // *****************************************
 // ************* API CALLS *****************
 
 // Requesting all users fro DB
 server.get("/", (req, res, next) => {
-    res.setHeader('content-type', 'aplication/json')
-    res.writeHead(200)
-    res.end(JSON.stringify(users))
-    return next()
+    success(res, next, users)
 })
 
 // Requesting a user by ID
 server.get("/user/:id", (req, res, next) => {
-    res.setHeader('content-type', 'aplication/json')
-    res.writeHead(200)
-    res.end(JSON.stringify(users[parseInt(req.params.id)]))
-    return next()
+    success(res, next, users[parseInt(req.params.id)])
 })
 
 // Add User to DB
@@ -52,11 +71,8 @@ server.post("/user", (req, res, next) => {
 	user.id = max_user_id
     users[user.id] = user
     
-	res.setHeader('content-type', 'application/json')
-	res.writeHead(200)
-    res.end(JSON.stringify(user))
-    
-	return next()
+    success(res, next, user)
+
 });
 
 // Update User
@@ -68,21 +84,14 @@ server.put("/user/:id", (req, res, next) => {
     for( z in updates ){
         user[z] = updates[z]
     }
-    
-	res.setHeader('content-type', 'application/json')
-	res.writeHead(200)
-    res.end(JSON.stringify(user))
-    
-	return next()
+
+    success(res, next, user)
 })
 
 // Delete a user by ID
 server.del("/user/:id", (req, res, next) => {
     delete users[ req.params.id ]
-    res.setHeader('content-type', 'aplication/json')
-    res.writeHead(200)
-    res.end( JSON.stringify( true ) )
-    return next()
+    success(res, next, [])
 })
 
 // *******************************************
