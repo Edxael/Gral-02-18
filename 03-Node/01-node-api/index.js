@@ -60,7 +60,12 @@ server.get("/", (req, res, next) => {
 
 // Requesting a user by ID
 server.get("/user/:id", (req, res, next) => {
-    success(res, next, users[parseInt(req.params.id)])
+    if(typeof users[req.params.id] === 'undefined'){
+        failure(res, next, 'The specify user not exist in DB', 404)
+    }else{
+        success(res, next, users[parseInt(req.params.id)])
+    }
+    
 })
 
 // Add User to DB
@@ -77,21 +82,30 @@ server.post("/user", (req, res, next) => {
 
 // Update User
 server.put("/user/:id", (req, res, next) => {
+    if(typeof users[req.params.id] === 'undefined'){
+        failure(res, next, 'The specify user not exist in DB', 404)
+    }else{
+        let user = users[ req.params.id ]
+        let updates = req.body
 
-    let user = users[ req.params.id ]
-    let updates = req.body
+        for( z in updates ){
+            user[z] = updates[z]
+        }
 
-    for( z in updates ){
-        user[z] = updates[z]
+        success(res, next, user)
     }
 
-    success(res, next, user)
 })
 
 // Delete a user by ID
 server.del("/user/:id", (req, res, next) => {
-    delete users[ req.params.id ]
-    success(res, next, [])
+    if(typeof users[req.params.id] === 'undefined'){
+        failure(res, next, 'The specify user not exist in DB', 404)
+    }else{
+        delete users[ req.params.id ]
+        success(res, next, [])
+    }
+    
 })
 
 // *******************************************
