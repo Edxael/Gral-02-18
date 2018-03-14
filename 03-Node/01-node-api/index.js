@@ -1,4 +1,4 @@
-// ------- FUNCTIONS FOR DRY CODE ---------
+// ------- FUNCTIONS FOR DRY CODE ----------
 const respond = ( res, next, status, data, http_code ) => {
     let response = {
         'status': status,
@@ -19,9 +19,12 @@ const failure = (res, next, data, http_code) => {
 }
 
 
+
 // ------- IMPORTING ---------
 const restify = require('restify')
 const server = restify.createServer()
+
+// const servFuns = require('./config/serverFunctions')
 
 
 // ------- FAKE DB ---------
