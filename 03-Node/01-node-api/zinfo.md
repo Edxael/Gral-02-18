@@ -1,14 +1,18 @@
 
-
 Location of the barebones:
 http://restify.com/docs/home/
+
 
 Restify cheat-seet:
 https://gist.github.com/LeCoupa/0664e885fd74152d1f90
 
-BareBones: in index.js
+
+Location Restify-validator:
+https://www.npmjs.com/package/restify-validator
+
 
 ------------------------------------------------------
+<!-- BareBones: in index.js -->
 
 Code before I create the fake DataBase:
 
