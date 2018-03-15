@@ -1,6 +1,9 @@
 const router = require('express').Router()
 const bcrypt = require('bcryptjs')
 const User = require('../models/1-user') 
+const jwt = require('jsonwebtoken')
+const constants = require('../config/constants')
+
 
 router.post('/', (req, res) => {
     let user = new User({
@@ -11,9 +14,11 @@ router.post('/', (req, res) => {
 
     user.save().then(
         (newuser)  => { 
+            let sessionToken = jwt.sign(newuser._id, constants.JWT_SECRET, { expiresIn: 60*60*24 })
             res.json({
                 user: newuser,
-                message: 'Success in creating user..'
+                message: 'Success in creating user..',
+                sessionToken: sessionToken
             })
         },
         (err) => { res.send(500, err.message) }

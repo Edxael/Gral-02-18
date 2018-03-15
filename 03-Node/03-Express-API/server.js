@@ -4,6 +4,7 @@ const bodyParser = require('body-parser')
 
 app.use(bodyParser.json())
 app.use(require('./middleware/headers'))
+app.use(require('./middleware/validate-session'))
 
 
 // ***** ROUTES *****
