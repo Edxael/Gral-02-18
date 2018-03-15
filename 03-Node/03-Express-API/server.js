@@ -7,6 +7,9 @@ app.use(require('./middleware/headers'))
 app.use(require('./middleware/validate-session'))
 
 
+
+
+
 // ***** ROUTES *****
 app.use('/test', (req, res) => {
     res.send('Hello Edmundo')
@@ -14,6 +17,11 @@ app.use('/test', (req, res) => {
     // User creation route
 app.use('/api/users', require('./routes/users'))
 
+    // Validate User
+app.use('/api/login', require('./routes/sessions'))
+
+
+app.use('/api/definitions', require('./routes/definitions'))
 
 
 
@@ -23,3 +31,16 @@ app.listen(5000, (err) => {
     console.log(" ")
     console.log("API Up-&-Running.....")
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
