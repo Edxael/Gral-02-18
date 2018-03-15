@@ -1,0 +1,10 @@
+const db = require('../config/db')
+
+const UserSchema = db.Schema({
+    username: {type: String, require: true},
+    email: {type: String, require: true},
+    passhash: {type: String, require: true},
+    created: {type: Date, default: Date.now}
+})
+
+module.exports = UserSchema
