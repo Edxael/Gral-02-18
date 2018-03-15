@@ -21,3 +21,16 @@ router.post('/', (req, res) => {
 })
 
 module.exports = router
+
+
+
+// -----------------------------------------------
+// Example of JSON object to create new user: (POSTMAN)
+//
+// {
+//     "user": {
+//         "username": "Ayumi Hamasaki",
+//         "email": "ayu@avex.jp",
+//         "pwd": "ayuForever"
+//     }
+// }
