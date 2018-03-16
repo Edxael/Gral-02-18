@@ -18,7 +18,8 @@ app.use(require('./API-Files/headers'))
 // var port = process.env.PORT || 8080;        // set our port
 
 // conection to DataBase
-db.connect('mongodb://master:Hkodoma48@ds125896.mlab.com:25896/courpath', (err) => {
+// db.connect('mongodb://master:Hkodoma48@ds125896.mlab.com:25896/courpath', (err) => {
+db.connect('mongodb://admin1:Webaholics1@ds115569.mlab.com:15569/xml-1', (err) => {
     if(err){ console.log(err) }else { console.log("Conected to DataBase.") }
 })
 
@@ -53,7 +54,7 @@ router.route('/singers')     // create a singer (accessed at POST http://localho
     .post( (req, res) => {
         const oneSinger = new SingerTemplate();      // create a new instance of the Singer model
         oneSinger.name = req.body.name;  // set the singer name (comes from the request)
-        oneSinger.save( (err) => {   // save the bear and check for errors
+        oneSinger.save( (err) => {   // save the singer and check for errors
             if (err) { res.send(err) }
             res.json({ message: 'Singer Record Created...' })
         })
@@ -93,7 +94,7 @@ router.route('/singers/:_id')
     .delete( (req, res) => {  // delete a singer record using id (accessed at DELETE http://localhost:8080/api/singers/:_id)
         SingerTemplate.remove({
             _id: req.params._id
-        }, (err, bear) => {
+        }, (err, xmldb) => {
             if (err) { res.send(err) }
             res.json({ message: 'Singer Record Successfully deleted' })
         })

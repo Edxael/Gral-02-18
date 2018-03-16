@@ -6,4 +6,6 @@ var SingerSchema   = new Schema({
     // email: String,
 });
 
-module.exports = mongoose.model('Bear', SingerSchema)
+module.exports = mongoose.model('xmldb', SingerSchema)
+
+
