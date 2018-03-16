@@ -1,5 +1,6 @@
 import React from 'react'
-import axios from 'axios';
+import axios from 'axios'
+import './style.css'
 
 export default class extends React.Component{
     state = { name: '', findone: '', updateid: '', updatename: '', deleteid: '' }
@@ -83,52 +84,54 @@ export default class extends React.Component{
                 <hr/>
 
 
-                <h4>GET ALL</h4>
-                <button onClick={ getAll }>GET All Data</button>
-                <br/><br/>
-                <hr/>
+                <div className="secWrap">
+                    <h4>GET ALL</h4>
+                    <button onClick={ getAll }>GET All Data</button>
+                    <br/><br/>
+                </div>
 
-
-
-
-                <h4>GET ONE SINGER BY ID</h4>
-                <input type="text" value={this.state.findone} onChange={ (e) => { this.setState({ findone: e.target.value }) } }/>
                 <br/>
-                <button onClick={ getOne }>GET ONE</button>
-                <br/><br/>
-                <hr/>
+        
 
+                <div className="secWrap">
+                    <h4>GET ONE SINGER BY ID</h4>
+                    <input type="text" value={this.state.findone} onChange={ (e) => { this.setState({ findone: e.target.value }) } }/>
+                    <br/>
+                    <button onClick={ getOne }>GET ONE</button>
+                    <br/><br/>
+                </div>
 
-              
-
-                <h4>POST A NEW SINGER</h4>
-                <input type="text" value={this.state.name} onChange={ (e) => { this.setState({ name: e.target.value }) } }/>
                 <br/>
-                <button onClick={ post1 }>POST</button>
-                <br/><br/>
-                <hr/>
-                
 
+                <div className="secWrap">
+                    <h4>POST A NEW SINGER</h4>
+                    <input type="text" value={this.state.name} onChange={ (e) => { this.setState({ name: e.target.value }) } }/>
+                    <br/>
+                    <button onClick={ post1 }>POST</button>
+                    <br/><br/>
+                </div>
 
-
-                <h4>UPDATE SINGER NAME</h4>
-                <input type="text" placeholder="ID of Singer to UPDATE" value={this.state.updateid} onChange={ (e) => { this.setState({ updateid: e.target.value }) } }/>
                 <br/>
-                <input type="text" placeholder="New Name" value={this.state.updatename} onChange={ (e) => { this.setState({ updatename: e.target.value }) } }/>
+
+                <div className="secWrap">
+                    <h4>UPDATE SINGER NAME</h4>
+                    <input type="text" placeholder="ID of Singer to UPDATE" value={this.state.updateid} onChange={ (e) => { this.setState({ updateid: e.target.value }) } }/>
+                    <br/>
+                    <input type="text" placeholder="New Name" value={this.state.updatename} onChange={ (e) => { this.setState({ updatename: e.target.value }) } }/>
+                    <br/>
+                    <button onClick={ update1 }>UPDATE</button>
+                    <br/><br/>
+                </div>
+
                 <br/>
-                <button onClick={ update1 }>UPDATE</button>
-                <br/><br/>
-                <hr/>
 
-
-
-                <h4>DELETE SINGER BY ID</h4>
-                <input type="text" value={this.state.deleteid} onChange={ (e) => { this.setState({ deleteid: e.target.value }) } }/>
-                <br/>
-                <button onClick={ delete1 }>DELETE</button>
-                <br/><br/>
-                <hr/>
-                
+                <div className="secWrap">
+                    <h4>DELETE SINGER BY ID</h4>
+                    <input type="text" value={this.state.deleteid} onChange={ (e) => { this.setState({ deleteid: e.target.value }) } }/>
+                    <br/>
+                    <button onClick={ delete1 }>DELETE</button>
+                    <br/><br/>
+                </div>
 
             </div>
         )
