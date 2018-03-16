@@ -19,3 +19,11 @@ https://www.npmjs.com/package/axios
 
 ### XML-CALLS WITH POSTMAN
 https://developer.intacct.com/web-services/your-first-api-calls/
+
+
+
+============================================================
+
+### Another option:
+https://www.youtube.com/watch?v=EAwSvbfFpIg
+https://www.youtube.com/watch?v=lk4-UYD3KC4
