@@ -25,6 +25,8 @@ export default class extends React.Component{
                 .then( (response) => { return response.data } )
                 .then( (data) => { console.log(data) })
                 .catch( (error) => { console.log(error) })
+
+                this.setState({ findone: '' })
         }
 
 
@@ -36,9 +38,10 @@ export default class extends React.Component{
             axios.post('http://localhost:5000/api/singers', {
                 name: this.state.name
             })
-                // .then( (response) => { return response.data } )
                 .then( (response) => { console.log(response) })
                 .catch( (error) => { console.log(error) })
+
+                this.setState({ name: '' })
         }
 
 
@@ -50,9 +53,10 @@ export default class extends React.Component{
             axios.put('http://localhost:5000/api/singers/' + this.state.updateid, {
                 name: this.state.updatename
             })
-                // .then( (response) => { return response.data } )
                 .then( (response) => { console.log(response) })
                 .catch( (error) => { console.log(error) })
+
+                this.setState({ updateid: '', updatename: '' })
         }
 
 
@@ -63,9 +67,10 @@ export default class extends React.Component{
             console.log("DELETE Singer Record:")
 
             axios.delete( 'http://localhost:5000/api/singers/' + this.state.deleteid )
-                // .then( (response) => { return response.data } )
                 .then( (response) => { console.log(response) })
                 .catch( (error) => { console.log(error) })
+
+                this.setState({ deleteid: '' })
         }
 
 
