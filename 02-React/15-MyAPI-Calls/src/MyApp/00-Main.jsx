@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import './style.css'
 
+
 export default class extends React.Component{
     state = { name: '', findone: '', updateid: '', updatename: '', deleteid: '' }
 
@@ -80,7 +81,7 @@ export default class extends React.Component{
 
         return(
             <div>
-                <h1>Tesgin API - 1</h1>
+                <h1>Tesgin API - 1.1</h1>
                 <hr/>
 
 
