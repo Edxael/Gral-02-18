@@ -1,0 +1,14 @@
+body{
+    background-color: aquamarine;
+    padding: 5px 10px 5px 10px;
+}
+
+.secWrap{
+    background-color: blanchedalmond;
+    padding: 1px 0px 0px 15px;
+    border: 1px solid black
+}
+
+input{
+    width: 90%;
+}
