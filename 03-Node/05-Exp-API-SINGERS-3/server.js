@@ -13,6 +13,7 @@ const SingerTemplate   = require('./API-Files/singerSchema')
 // this will let us get the data from a POST
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
+app.use(require('./API-Files/headers'))
 
 // var port = process.env.PORT || 8080;        // set our port
 
@@ -31,8 +32,7 @@ db.connect('mongodb://master:Hkodoma48@ds125896.mlab.com:25896/courpath', (err) 
 const router = express.Router()              // get an instance of the express Router
 
 // middleware to use for all requests
-router.use( (req, res, next) => {
-    // do logging
+router.use( (req, res, next) => {    // do logging
     console.log('Something is happening.')
     next(); // make sure we go to the next routes and don't stop here
 })

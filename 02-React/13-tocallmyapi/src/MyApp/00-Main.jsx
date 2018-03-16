@@ -1,5 +1,5 @@
 import React from 'react'
-// let MyURL = 'http://localhost:5000/'
+let MyURL = 'http://localhost:5000/api/singers/'
 
 
 export default class extends React.Component{
@@ -8,6 +8,8 @@ export default class extends React.Component{
     getAll(){
         console.log("GET-ALL-2")
 
+        fetch(MyURL , {mode: 'no-cors'})
+            .then((data1) => { console.log( data1 ) } )
     }
 
 
@@ -16,7 +18,7 @@ export default class extends React.Component{
         return(
             <div>
                 <h1>Main.jsx ..</h1>
-                <button onClick={this.getAll.bind(this)}>GET DATA...</button>
+                <button onClick={this.getAll.bind(this)}>GET DATA...1</button>
             </div>
         )
     }
