@@ -8,3 +8,7 @@ body{
     padding: 1px 0px 0px 15px;
     border: 1px solid black
 }
+
+input{
+    width: 90%;
+}
