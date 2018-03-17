@@ -21,6 +21,10 @@ https://www.npmjs.com/package/axios
 https://developer.intacct.com/web-services/your-first-api-calls/
 
 
+### V Source:
+AJAX JavaScript XHR and Fetch
+
+
 
 ============================================================
 
