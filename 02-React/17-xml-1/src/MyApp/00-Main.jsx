@@ -24,7 +24,7 @@ export default class extends Component {
 
         return(
             <div>
-                <h1>XML - TESTING</h1>
+                <h1>XML - TESTING - 1</h1>
                 <hr/>
                 <button onClick={CallAPI}>Call XML API</button>
             </div>
