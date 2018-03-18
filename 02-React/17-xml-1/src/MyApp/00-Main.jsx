@@ -13,38 +13,7 @@ export default class extends Component {
             console.log("Calling the API... 07")
         }
 
-        const getCountries = (e) => {
-            console.log("Runing getCountries")
 
-            this.setState({ scon: this.menu.value })
-
-            setTimeout(() => { 
-                console.log(this.state.scon) 
-
-                let xhr = new XMLHttpRequest()
-
-                MyURL = MyURL + "?continent=" + this.state.scon
-                console.log( MyURL )
-
-                xhr.open("GET", MyURL , true)
-                xhr.send()
-
-                
-                xhr.onreadystatechange = function() {
-                    if(this.readyState === 4 && this.status === 200){
-                        console.log("Paso la prueva");
-                        
-                        // console.log( xhr.responseText )
-                    }
-                }
-
-                
-            
-                MyURL = "http://localhost/ajax/01-countries-data.php"
-                this.setState({ scon: '' })
-            }, 100)
-
-        }
 
         return(
             <div>
@@ -52,18 +21,7 @@ export default class extends Component {
                 <hr/>
                 <button onClick={CallAPI}>Call XML API</button>
 
-                <div className='countries1' >
-
-                    <select id="continents" onChange={getCountries} ref = {(input)=> this.menu = input} >
-                        <option value="africa">Africa</option>
-                        <option value="asia">Asia</option>
-                        <option value="europe">Europe</option>
-                        <option value="n-america">North America</option>
-                        <option value="s-america">South America</option>
-                        <option value="australia">Australia</option>
-                    </select>
-
-                </div>
+    
 
             </div>
         )
