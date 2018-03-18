@@ -33,6 +33,14 @@ https://www.youtube.com/watch?v=EAwSvbfFpIg
 https://www.youtube.com/watch?v=lk4-UYD3KC4
 
 
+
+============================================================
+
+
+# OTHER PLACE WHERE WE CAN CREATE A FAKE API
+https://testapi.io/#whatisit
+
+
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -145,7 +153,7 @@ Sofar on the: AJAX in Action: Build AJAX-Based Applications
 
         }
 
-        
+
     * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
          <select id="continents" onChange={getCountries} ref = {(input)=> this.menu = input} >
