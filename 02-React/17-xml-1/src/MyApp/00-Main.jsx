@@ -44,11 +44,6 @@ export default class extends Component {
                 this.setState({ scon: '' })
             }, 100)
 
-            
-
-            
-
-
         }
 
         return(
