@@ -21,8 +21,6 @@ export default class extends Component {
                 <hr/>
                 <button onClick={CallAPI}>Call XML API</button>
 
-    
-
             </div>
         )
     }
