@@ -59,6 +59,9 @@ router.route('/singers')     // create a singer (accessed at POST http://localho
 
     .post( (req, res) => {
         const oneSinger = new SingerTemplate();      // create a new instance of the Singer model
+
+        // You need to change the xml to json here... 
+
         oneSinger.name = req.body.name;  // set the singer name (comes from the request)
         oneSinger.save( (err) => {   // save the singer and check for errors
             if (err) { res.send(err) }

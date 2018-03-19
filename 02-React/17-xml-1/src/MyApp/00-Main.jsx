@@ -47,10 +47,49 @@ export default class extends Component {
                 <hr/>
 
                 <br/>
-                <button onClick={POST1}>POST - XML API.</button>
-                <br/><br/>
-                <hr/>
+        
 
+                <div className="secWrap">
+                    <h4>GET ONE SINGER BY ID</h4>
+                    <input type="text" value={this.state.findone} onChange={ (e) => { this.setState({ findone: e.target.value }) } }/>
+                    <br/>
+                    <button onClick={ GET1 }>GET ONE</button>
+                    <br/><br/>
+                </div>
+
+                <br/>
+
+                <div className="secWrap">
+                    <h4>POST A NEW SINGER</h4>
+                    <input type="text" value={this.state.name} onChange={ (e) => { this.setState({ name: e.target.value }) } }/>
+                    <br/>
+                    <button onClick={ GET1 }>POST</button>
+                    <br/><br/>
+                </div>
+
+                <br/>
+
+                <div className="secWrap">
+                    <h4>UPDATE SINGER NAME</h4>
+                    <input type="text" placeholder="ID of Singer to UPDATE" value={this.state.updateid} onChange={ (e) => { this.setState({ updateid: e.target.value }) } }/>
+                    <br/>
+                    <input type="text" placeholder="New Name" value={this.state.updatename} onChange={ (e) => { this.setState({ updatename: e.target.value }) } }/>
+                    <br/>
+                    <button onClick={ GET1 }>UPDATE</button>
+                    <br/><br/>
+                </div>
+
+                <br/>
+
+                <div className="secWrap">
+                    <h4>DELETE SINGER BY ID</h4>
+                    <input type="text" value={this.state.deleteid} onChange={ (e) => { this.setState({ deleteid: e.target.value }) } }/>
+                    <br/>
+                    <button onClick={ GET1 }>DELETE</button>
+                    <br/><br/>
+                </div>
+
+                
             </div>
         )
     }
