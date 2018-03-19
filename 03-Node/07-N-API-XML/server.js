@@ -3,11 +3,17 @@
 // =============================================================================
 
 // call the packages we need
-const express    = require('express');       // call express
-const app        = express()                // define our app using express
-const bodyParser = require('body-parser')
-const db         = require('mongoose')
+const express     = require('express');       // call express
+const app         = express()                // define our app using express
+const bodyParser  = require('body-parser')
+const db          = require('mongoose')
+const parseString = require('xml2js').parseString
+const xml2js = require('xml2js')
+
+
 const SingerTemplate   = require('./API-Files/singerSchema')
+
+
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
@@ -34,7 +40,7 @@ const router = express.Router()              // get an instance of the express R
 
 // middleware to use for all requests
 router.use( (req, res, next) => {    // do logging
-    console.log('Something is happening.')
+    console.log('Request to the server detected....')
     next(); // make sure we go to the next routes and don't stop here
 })
 
@@ -60,7 +66,7 @@ router.route('/singers')     // create a singer (accessed at POST http://localho
         })
     })
     
-    .get( (req, res) => {   // get all the singers (accessed at GET http://localhost:8080/api/singers)
+    .get( (req, res) => {   // get all the singers (accessed at GET http://localhost:5000/api/singers)
         SingerTemplate.find( (err, allSingers) => {
             if (err) { res.send(err) }
             res.json(allSingers)
@@ -68,16 +74,30 @@ router.route('/singers')     // create a singer (accessed at POST http://localho
     })
 
 
+    let DataToUseInApp = ''
 
-
-router.route('/singers/:_id')
+router.route('/singers/:_id')  
     
-    .get( (req, res) => {  // get ONE singer by id (accessed at GET http://localhost:8080/api/singers/:_id)
+    .get( (req, res) => {  // http://localhost:5000/api/singers/5aab446b0f66102c6131b83b
         SingerTemplate.findById(req.params._id, (err, oneSinger) => {
             if (err) { res.send(err) }
-            res.json(oneSinger)
+
+            let temObj = {
+                SingerProfile: {
+                    Name: oneSinger.name,
+                    id: JSON.stringify(oneSinger._id)
+                }
+            }
+
+            console.log(temObj)
+            let myBuilder = new xml2js.Builder()
+            let myXML = myBuilder.buildObject(temObj)
+
+            res.send( myXML )   
         })
     })
+
+
 
     .put( (req, res) => {   // update the singer record with given id (accessed at PUT http://localhost:8080/api/singers/:_id)
         SingerTemplate.findById(req.params._id, (err, oneSinger) => {
@@ -90,6 +110,8 @@ router.route('/singers/:_id')
             })
         })
     })
+
+
 
     .delete( (req, res) => {  // delete a singer record using id (accessed at DELETE http://localhost:8080/api/singers/:_id)
         SingerTemplate.remove({

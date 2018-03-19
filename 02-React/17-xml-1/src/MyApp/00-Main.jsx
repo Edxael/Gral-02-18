@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import './styles/00-main.css'
 // const MyURL = "http://demo9622188.mockable.io/test"
 // let MyURL = "http://localhost/ajax/01-countries-data.php"
-let MyURL = "http://localhost:5000/users"
+// let MyURL = "http://localhost:5000/users"
+// let MyURL = "http://localhost:5000/api/singers/"
+let MyURL = "http://localhost:5000/api/singers/5aab446b0f66102c6131b83b"
 
 export default class extends Component {
 
@@ -17,8 +19,9 @@ export default class extends Component {
 
             xhttp.onreadystatechange = function() {
                 if (this.readyState === 4 && this.status === 200) {
-                    console.log('success on conecting')
-                    console.log('The server response: ', this.responseText)
+                    console.log('The response from the server: ')
+                    // console.log('The server response: ', this.responseText)
+                    console.log( this.response )
                 }
             }
 
