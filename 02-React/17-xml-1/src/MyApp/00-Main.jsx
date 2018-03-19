@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import './styles/00-main.css'
 // const MyURL = "http://demo9622188.mockable.io/test"
-let MyURL = "http://localhost/ajax/01-countries-data.php"
+// let MyURL = "http://localhost/ajax/01-countries-data.php"
+let MyURL = "http://localhost:5000/users"
 
 export default class extends Component {
 
@@ -9,21 +10,45 @@ export default class extends Component {
 
     render(){
 
-        const CallAPI = () => {
-            console.log("Calling the API... 07")
+        const GET1 = () => {
+            console.log("GET: to Mock-API-1")
+
+            const xhttp = new XMLHttpRequest()
+
+            xhttp.onreadystatechange = function() {
+                if (this.readyState === 4 && this.status === 200) {
+                    console.log('success on conecting')
+                    console.log('The server response: ', this.responseText)
+                }
+            }
+
+            xhttp.open("GET", MyURL, true)
+            xhttp.send() 
+        }
+
+
+        const POST1 = () => {
+            
         }
 
 
 
         return(
             <div>
-                <h1>XML - TESTING - 1</h1>
+                <h1>XML - TESTING - 3</h1>
                 <hr/>
-                <button onClick={CallAPI}>Call XML API</button>
+
+                <br/>
+                <button onClick={GET1}>GET - XML API</button>
+                <br/><br/>
+                <hr/>
+
+                <br/>
+                <button onClick={POST1}>POST - XML API.</button>
+                <br/><br/>
+                <hr/>
 
             </div>
         )
     }
 }
-
-

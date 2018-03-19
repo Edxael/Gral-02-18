@@ -168,3 +168,22 @@ Sofar on the: AJAX in Action: Build AJAX-Based Applications
 
 ------------------------------------------------------------
 
+EXAMPLE OF A POST
+
+        const POST1 = () => {
+            console.log("POST: to Mock-API")
+
+            const xhttp = new XMLHttpRequest()
+            xhttp.open("POST", MyURL, true)
+
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+
+            xhttp.onreadystatechange = () => {          //Call a function when the state changes.
+                if(xhttp.readyState === XMLHttpRequest.DONE && xhttp.status === 200) {
+                    // Request finished. Do processing here.
+                    console.log("Succesful Post....")
+                }
+            }
+
+            xhttp.send('my string ')
+        }
