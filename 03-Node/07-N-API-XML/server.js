@@ -40,7 +40,10 @@ const router = express.Router()              // get an instance of the express R
 
 // middleware to use for all requests
 router.use( (req, res, next) => {    // do logging
+    console.log(' ')
+    console.log("____________________________________________________________")
     console.log('Request to the server detected....')
+    console.log(' ')
     next(); // make sure we go to the next routes and don't stop here
 })
 
@@ -57,17 +60,73 @@ router.use( (req, res, next) => {    // do logging
     
 router.route('/singers')     // create a singer (accessed at POST http://localhost:5000/api/singers)
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // fetch(XML_Data1)
+        //     .then((response) => { return response.text() })
+        //     .then((response) => { return parseString(response, (err, result) => { DataToUseInApp = result } )  })
+
+
+
+
     .post( (req, res) => {
         const oneSinger = new SingerTemplate();      // create a new instance of the Singer model
+        // oneSinger.name = req.body.name;  // set the singer name (comes from the request)
 
-        // You need to change the xml to json here... 
 
-        oneSinger.name = req.body.name;  // set the singer name (comes from the request)
+        
+
+        console.log( req.body.name )
+        console.log( typeof req.body.name )
+
+        // parseString(req.body.name, (err, result) => { console.log(result) } )
+        let tob = {}
+        parseString(req.body.name, (err, result) => { tob = result } )
+        console.log("El Objeto: ");
+        console.log(tob)
+        console.log(tob.SingerProfile.name[0])
+        // oneSinger.name = req.body.name;  // set the singer name (comes from the request)
+        oneSinger.name = tob.SingerProfile.name[0];  // set the singer name (comes from the request)
+
         oneSinger.save( (err) => {   // save the singer and check for errors
             if (err) { res.send(err) }
             res.json({ message: 'Singer Record Created...' })
         })
     })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
     .get( (req, res) => {   // get all the singers (accessed at GET http://localhost:5000/api/singers)
         SingerTemplate.find( (err, allSingers) => {
