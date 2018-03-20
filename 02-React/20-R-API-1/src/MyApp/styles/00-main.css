@@ -1,10 +1,10 @@
 body{
-    background-color: #71cbfc;
+    background-color: hsl(125, 96%, 72%);
     padding: 5px 10px 5px 10px;
 }
 
 .secWrap{
-    background-color: #e2abf0;
+    background-color: hsl(195, 18%, 64%);
     padding: 1px 0px 0px 15px;
     border: 1px solid black
 }

@@ -41,41 +41,6 @@ export default class extends React.Component{
 // --------------------------------------------------------------------------------
 
 
-        // const post1 = () => {
-        //     console.log("POST a new singer:")
-
-        //     let tempObj = {
-        //         SingerProfile: {
-        //             name: this.state.name
-        //         }
-        //     }
-
-        //     let myBuilder = new xml2js.Builder()
-        //     let myXML = myBuilder.buildObject(tempObj)
-        //     console.log("XML sended to the server:")
-        //     console.log(myXML)
-        //     console.log(typeof myXML)
-
-        //     axios.post('http://localhost:5000/api/singers', { name: myXML } )
-        //         .then( (response) => { console.log(response) })
-        //         .catch( (error) => { console.log(error) })
-
-        //         this.setState({ name: '' })
-        // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         const post1 = () => {
             console.log("POST a new singer:")
 
@@ -97,35 +62,6 @@ export default class extends React.Component{
 
                 this.setState({ name: '' })
         }
-
-
-
-
-
-
-
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -165,7 +101,7 @@ export default class extends React.Component{
 
         return(
             <div>
-                <h1>XML API - 1.4</h1>
+                <h1>XML - Long - API - 1.4</h1>
                 <hr/>
 
 

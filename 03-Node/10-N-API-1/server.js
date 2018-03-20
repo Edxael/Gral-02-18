@@ -1,141 +1,64 @@
-
-// BASE SETUP [ server.js ]
+    // call the packages we need
 // =============================================================================
-
-// call the packages we need
-const express     = require('express');       // call express
-const app         = express()                // define our app using express
+const express     = require('express');       
+const app         = express()                
 const bodyParser  = require('body-parser')
 const db          = require('mongoose')
 const parseString = require('xml2js').parseString
 const xml2js = require('xml2js')
-
-
 const SingerTemplate   = require('./API-Files/singerSchema')
 
 
 
-// configure app to use bodyParser()
-// this will let us get the data from a POST
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json())
-app.use(require('./API-Files/headers'))
-
-// var port = process.env.PORT || 8080;        // set our port
-
-// conection to DataBase
-// db.connect('mongodb://master:Hkodoma48@ds125896.mlab.com:25896/courpath', (err) => {
+    // Connection to database.
+// =============================================================================
 db.connect('mongodb://admin1:Webaholics1@ds115569.mlab.com:15569/xml-1', (err) => {
     if(err){ console.log(err) }else { console.log("Conected to DataBase.") }
 })
 
 
 
-
-
-
-// ROUTES FOR OUR API
+    // Middleware
 // =============================================================================
-const router = express.Router()              // get an instance of the express Router
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
+app.use(require('./API-Files/headers'))
+const router = express.Router()             
 
-// middleware to use for all requests
-router.use( (req, res, next) => {    // do logging
+router.use( (req, res, next) => {   
     console.log(' ')
-    console.log("____________________________________________________________")
-    console.log('Request to the server detected....')
-    console.log(' ')
-    next(); // make sure we go to the next routes and don't stop here
+    console.log(" \n Request to the server detected.... \n =================================================")
+    next(); 
 })
 
-// test route to make sure everything is working (accessed at GET http://localhost:8080/api)
-// app.use('/', (req, res) => {
-//     // res.send('Hello Edmundo')
-//     res.json({ message: 'Edmundo -2- welcome to our api!' })
-// })
 
 
-// on routes that end in /singesr
-// ----------------------------------------------------
-
-    
+    // on routes that end in /singesr
+// =============================================================================
+app.use('/api', router)      // all of our routes will be prefixed with /api
 router.route('/singers')     // create a singer (accessed at POST http://localhost:5000/api/singers)
 
 
-
-
-
-
-
-// -------------------------------------------------------------------------------------------
-
-    // .post( (req, res) => {
-    //     const oneSinger = new SingerTemplate();      // create a new instance of the Singer model
-
-    //     console.log( req.body.name )
-    //     console.log( typeof req.body.name )
-
-    //     let tob = {}
-    //     parseString(req.body.name, (err, result) => { tob = result } )
-    //     console.log("El Objeto: ");
-    //     console.log(tob)
-    //     console.log(tob.SingerProfile.name[0])
-    //     oneSinger.name = tob.SingerProfile.name[0];  // set the singer name (comes from the request)
-
-    //     oneSinger.save( (err) => {   // save the singer and check for errors
-    //         if (err) { res.send(err) }
-    //         res.json({ message: 'Singer Record Created...' })
-    //     })
-    // })
-
-// -------------------------------------------------------------------------------------------
-
     .post( (req, res) => {
-        const oneSinger = new SingerTemplate();      // create a new instance of the Singer model
+        const oneSinger = new SingerTemplate();     
 
         console.log( req.body.xml )
         console.log( typeof req.body.xml )
 
         let tob = {}
         parseString(req.body.xml, (err, result) => { tob = result } )
-        oneSinger.name = tob.SingerProfile.name[0];  // set the singer name (comes from the request)
+        oneSinger.name = tob.SingerProfile.name[0];  
 
         console.log("El Objeto: ");
         console.log(tob)
         console.log(tob.SingerProfile.name[0])
         
 
-        oneSinger.save( (err) => {   // save the singer and check for errors
+        oneSinger.save( (err) => {   
             if (err) { res.send(err) }
             res.json({ message: 'Singer Record Created...' })
         })
     })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -147,8 +70,7 @@ router.route('/singers')     // create a singer (accessed at POST http://localho
         })
     })
 
-
-    let DataToUseInApp = ''
+    // ------------------------------------------------------------
 
 router.route('/singers/:_id')  
     
@@ -198,23 +120,9 @@ router.route('/singers/:_id')
 
 
 
-
-// REGISTER OUR ROUTES ---------------------------------
-// all of our routes will be prefixed with /api
-app.use('/api', router)
-
-
-
-
-
-
-
-
-// THE SERVER
+// THE SERVER LISTENER
 // =============================================================================
 
-
-// ********* SERVER LISTENER *********
 app.listen(5000, (err) => {
     if(err){ throw err }
     console.log(" ")
