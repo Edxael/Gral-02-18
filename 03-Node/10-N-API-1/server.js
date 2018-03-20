@@ -40,19 +40,10 @@ router.route('/singers')     // create a singer (accessed at POST http://localho
 
 
     .post( (req, res) => {
-        const oneSinger = new SingerTemplate();     
+        console.log( 'Singer Record Created:\n', req.body.xml )
 
-        console.log( req.body.xml )
-        console.log( typeof req.body.xml, " \n ." )
-
-        let tob = {}
-        parseString(req.body.xml, (err, result) => { tob = result } )
-        oneSinger.name = tob.SingerProfile.name[0];  
-
-        console.log("El Objeto: ");
-        console.log(tob)
-        console.log(tob.SingerProfile.name[0])
-        
+        const oneSinger = new SingerTemplate()
+        parseString(req.body.xml, (err, result) => { oneSinger.name = result.SingerProfile.name[0] } )
 
         oneSinger.save( (err) => {   
             if (err) { res.send(err) }
@@ -61,12 +52,12 @@ router.route('/singers')     // create a singer (accessed at POST http://localho
     })
 
 
-
     
     .get( (req, res) => {   // get all the singers (accessed at GET http://localhost:5000/api/singers)
         SingerTemplate.find( (err, allSingers) => {
             if (err) { res.send(err) }
             res.json(allSingers)
+            console.log("All records send to Client: \n ")
         })
     })
 
@@ -85,10 +76,10 @@ router.route('/singers/:_id')
                 }
             }
 
-            console.log(temObj)
             let myBuilder = new xml2js.Builder()
             let myXML = myBuilder.buildObject(temObj)
 
+            console.log('Record Send to client: \n ', myXML)
             res.send( myXML )   
         })
     })
@@ -103,6 +94,7 @@ router.route('/singers/:_id')
             oneSinger.save( (err) => {   // save the singer record
                 if (err) { res.send(err) }
                 res.json({ message: 'Singer Record updated!' })
+                console.log('Record Updated...')
             })
         })
     })
@@ -114,7 +106,8 @@ router.route('/singers/:_id')
             _id: req.params._id
         }, (err, xmldb) => {
             if (err) { res.send(err) }
-            res.json({ message: 'Singer Record Successfully deleted' })
+            res.json({ message: 'Record Successfully deleted' })
+            console.log('Record Successfully deleted....')
         })
     })
 
