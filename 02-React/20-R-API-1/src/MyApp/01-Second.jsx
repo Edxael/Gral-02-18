@@ -1,10 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-
-// const parseString = require('xml2js').parseString;
-// const xml2js = require('xml2js')
 import xml2js from 'xml2js'
-
 import './styles/00-main.css'
 
 
@@ -14,6 +10,7 @@ export default class extends React.Component{
 
     render(){
 
+    // --------------------------------------------------------------------------------
         const getAll = () => {
             console.log("----------------------------------- \n  GET all the Records:")
 
@@ -23,9 +20,7 @@ export default class extends React.Component{
                 .catch( (error) => { console.log(error) })
         }
 
-
-
-
+    // --------------------------------------------------------------------------------
         const getOne = () => {
             console.log("----------------------------------- \n  GET one by ID:")
 
@@ -38,9 +33,7 @@ export default class extends React.Component{
         }
 
 
-// --------------------------------------------------------------------------------
-
-
+    // --------------------------------------------------------------------------------
         const post1 = () => {
             console.log("----------------------------------- \n  POST a new Record: \n ")
 
@@ -64,11 +57,7 @@ export default class extends React.Component{
         }
 
 
-
-
-// --------------------------------------------------------------------------------
-
-
+    // --------------------------------------------------------------------------------
         const update1 = () => {
             console.log("----------------------------------- \n  UPDATE Singer Record:")
 
@@ -82,9 +71,7 @@ export default class extends React.Component{
         }
 
 
-
-
-
+    // --------------------------------------------------------------------------------
         const delete1 = () => {
             console.log("----------------------------------- \n  DELETE Record:")
 
@@ -96,7 +83,7 @@ export default class extends React.Component{
         }
 
 
-
+    // --------------------------------------------------------------------------------
 
 
         return(

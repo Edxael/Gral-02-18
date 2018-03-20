@@ -18,6 +18,7 @@ db.connect('mongodb://admin1:Webaholics1@ds115569.mlab.com:15569/xml-1', (err) =
 
 
 
+
     // Middleware
 // =============================================================================
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -26,14 +27,14 @@ app.use(require('./API-Files/headers'))
 const router = express.Router()             
 
 router.use( (req, res, next) => {   
-    console.log(' ')
-    console.log(" \n Request to the server detected.... \n =================================================")
+    console.log(" \n \n Request to the server detected.... \n=================================================")
     next(); 
 })
 
 
 
-    // on routes that end in /singesr
+
+    // ROUTES
 // =============================================================================
 app.use('/api', router)      // all of our routes will be prefixed with /api
 router.route('/singers')     // create a singer (accessed at POST http://localhost:5000/api/singers)
@@ -61,7 +62,7 @@ router.route('/singers')     // create a singer (accessed at POST http://localho
         })
     })
 
-    // ------------------------------------------------------------
+            // ------------------------------------------------------------
 
 router.route('/singers/:_id')  
     
