@@ -29,7 +29,7 @@ export default class extends React.Component{
                 .then( (data) => { console.log(" \n XML Response from the Server: \n  \n ", data) })
                 .catch( (error) => { console.log(error) })
 
-                this.setState({ findone: '' })
+            this.setState({ findone: '' })
         }
 
 
@@ -53,7 +53,7 @@ export default class extends React.Component{
                 .then( (response) => { console.log(" \n Response from the Server: ", response) })
                 .catch( (error) => { console.log(error) })
 
-                this.setState({ name: '' })
+            this.setState({ name: '' })
         }
 
 
@@ -67,7 +67,7 @@ export default class extends React.Component{
                 .then( (response) => { console.log(" \n Response from the Server: ",response) })
                 .catch( (error) => { console.log(error) })
 
-                this.setState({ updateid: '', updatename: '' })
+            this.setState({ updateid: '', updatename: '' })
         }
 
 
@@ -79,7 +79,7 @@ export default class extends React.Component{
                 .then( (response) => { console.log(" \n Response from the Server: ", response) })
                 .catch( (error) => { console.log(error) })
 
-                this.setState({ deleteid: '' })
+            this.setState({ deleteid: '' })
         }
 
 
