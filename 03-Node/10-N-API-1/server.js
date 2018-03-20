@@ -43,7 +43,7 @@ router.route('/singers')     // create a singer (accessed at POST http://localho
         const oneSinger = new SingerTemplate();     
 
         console.log( req.body.xml )
-        console.log( typeof req.body.xml )
+        console.log( typeof req.body.xml, " \n ." )
 
         let tob = {}
         parseString(req.body.xml, (err, result) => { tob = result } )

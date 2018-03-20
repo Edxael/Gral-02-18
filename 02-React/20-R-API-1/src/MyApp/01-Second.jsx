@@ -15,7 +15,7 @@ export default class extends React.Component{
     render(){
 
         const getAll = () => {
-            console.log("GET all the singers:")
+            console.log("----------------------------------- \n  GET all the Records:")
 
             axios.get('http://localhost:5000/api/singers')
                 .then( (response) => { return response.data } )
@@ -27,11 +27,11 @@ export default class extends React.Component{
 
 
         const getOne = () => {
-            console.log("GET one by ID:")
+            console.log("----------------------------------- \n  GET one by ID:")
 
             axios.get( 'http://localhost:5000/api/singers/' + this.state.findone )
                 .then( (response) => { return response.data } )
-                .then( (data) => { console.log(data) })
+                .then( (data) => { console.log(" \n XML Response from the Server: \n  \n ", data) })
                 .catch( (error) => { console.log(error) })
 
                 this.setState({ findone: '' })
@@ -42,7 +42,7 @@ export default class extends React.Component{
 
 
         const post1 = () => {
-            console.log("POST a new singer:")
+            console.log("----------------------------------- \n  POST a new Record: \n ")
 
             let tempObj = {
                 SingerProfile: {
@@ -57,7 +57,7 @@ export default class extends React.Component{
             console.log(typeof myXML)
 
             axios.post('http://localhost:5000/api/singers', { xml: myXML } )
-                .then( (response) => { console.log(response) })
+                .then( (response) => { console.log(" \n Response from the Server: ", response) })
                 .catch( (error) => { console.log(error) })
 
                 this.setState({ name: '' })
@@ -70,12 +70,12 @@ export default class extends React.Component{
 
 
         const update1 = () => {
-            console.log("UPDATE Singer Record:")
+            console.log("----------------------------------- \n  UPDATE Singer Record:")
 
             axios.put('http://localhost:5000/api/singers/' + this.state.updateid, {
                 name: this.state.updatename
             })
-                .then( (response) => { console.log(response) })
+                .then( (response) => { console.log(" \n Response from the Server: ",response) })
                 .catch( (error) => { console.log(error) })
 
                 this.setState({ updateid: '', updatename: '' })
@@ -86,10 +86,10 @@ export default class extends React.Component{
 
 
         const delete1 = () => {
-            console.log("DELETE Singer Record:")
+            console.log("----------------------------------- \n  DELETE Record:")
 
             axios.delete( 'http://localhost:5000/api/singers/' + this.state.deleteid )
-                .then( (response) => { console.log(response) })
+                .then( (response) => { console.log(" \n Response from the Server: ", response) })
                 .catch( (error) => { console.log(error) })
 
                 this.setState({ deleteid: '' })
