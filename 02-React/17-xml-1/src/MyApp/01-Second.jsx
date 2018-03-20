@@ -41,6 +41,28 @@ export default class extends React.Component{
 // --------------------------------------------------------------------------------
 
 
+        // const post1 = () => {
+        //     console.log("POST a new singer:")
+
+        //     let tempObj = {
+        //         SingerProfile: {
+        //             name: this.state.name
+        //         }
+        //     }
+
+        //     let myBuilder = new xml2js.Builder()
+        //     let myXML = myBuilder.buildObject(tempObj)
+        //     console.log("XML sended to the server:")
+        //     console.log(myXML)
+        //     console.log(typeof myXML)
+
+        //     axios.post('http://localhost:5000/api/singers', { name: myXML } )
+        //         .then( (response) => { console.log(response) })
+        //         .catch( (error) => { console.log(error) })
+
+        //         this.setState({ name: '' })
+        // }
+
 
 
 
@@ -56,9 +78,6 @@ export default class extends React.Component{
 
         const post1 = () => {
             console.log("POST a new singer:")
-            console.log("XML sended to the server:")
-
-            let data = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?> <SingerProfile> <Name>Haruka Kodoma</Name> <id>"5aab446b0f66102c6131b83b"</id> </SingerProfile>'
 
             let tempObj = {
                 SingerProfile: {
@@ -68,9 +87,11 @@ export default class extends React.Component{
 
             let myBuilder = new xml2js.Builder()
             let myXML = myBuilder.buildObject(tempObj)
+            console.log("XML sended to the server:")
             console.log(myXML)
+            console.log(typeof myXML)
 
-            axios.post('http://localhost:5000/api/singers', { name: myXML } )
+            axios.post('http://localhost:5000/api/singers', { xml: myXML } )
                 .then( (response) => { console.log(response) })
                 .catch( (error) => { console.log(error) })
 
@@ -83,12 +104,7 @@ export default class extends React.Component{
 
 
 
-
-
-
-            // axios.post('http://localhost:5000/api/singers', {
-            //     name: "Leopoldo"
-            // })
+            
 
 
 
@@ -149,7 +165,7 @@ export default class extends React.Component{
 
         return(
             <div>
-                <h1>XML API - 1.3</h1>
+                <h1>XML API - 1.4</h1>
                 <hr/>
 
 

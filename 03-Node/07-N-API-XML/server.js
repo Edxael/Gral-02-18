@@ -66,48 +66,60 @@ router.route('/singers')     // create a singer (accessed at POST http://localho
 
 
 
+// -------------------------------------------------------------------------------------------
 
+    // .post( (req, res) => {
+    //     const oneSinger = new SingerTemplate();      // create a new instance of the Singer model
 
+    //     console.log( req.body.name )
+    //     console.log( typeof req.body.name )
 
+    //     let tob = {}
+    //     parseString(req.body.name, (err, result) => { tob = result } )
+    //     console.log("El Objeto: ");
+    //     console.log(tob)
+    //     console.log(tob.SingerProfile.name[0])
+    //     oneSinger.name = tob.SingerProfile.name[0];  // set the singer name (comes from the request)
 
+    //     oneSinger.save( (err) => {   // save the singer and check for errors
+    //         if (err) { res.send(err) }
+    //         res.json({ message: 'Singer Record Created...' })
+    //     })
+    // })
 
-
-
-
-
-
-
-        // fetch(XML_Data1)
-        //     .then((response) => { return response.text() })
-        //     .then((response) => { return parseString(response, (err, result) => { DataToUseInApp = result } )  })
-
-
-
+// -------------------------------------------------------------------------------------------
 
     .post( (req, res) => {
         const oneSinger = new SingerTemplate();      // create a new instance of the Singer model
-        // oneSinger.name = req.body.name;  // set the singer name (comes from the request)
 
+        console.log( req.body.xml )
+        console.log( typeof req.body.xml )
 
-        
-
-        console.log( req.body.name )
-        console.log( typeof req.body.name )
-
-        // parseString(req.body.name, (err, result) => { console.log(result) } )
         let tob = {}
-        parseString(req.body.name, (err, result) => { tob = result } )
+        parseString(req.body.xml, (err, result) => { tob = result } )
+        oneSinger.name = tob.SingerProfile.name[0];  // set the singer name (comes from the request)
+
         console.log("El Objeto: ");
         console.log(tob)
         console.log(tob.SingerProfile.name[0])
-        // oneSinger.name = req.body.name;  // set the singer name (comes from the request)
-        oneSinger.name = tob.SingerProfile.name[0];  // set the singer name (comes from the request)
+        
 
         oneSinger.save( (err) => {   // save the singer and check for errors
             if (err) { res.send(err) }
             res.json({ message: 'Singer Record Created...' })
         })
     })
+
+
+
+
+
+
+
+
+
+
+
 
 
 
