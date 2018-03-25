@@ -13,6 +13,12 @@ sudo /etc/init.d/bluetooth start
 sudo /etc/init.d/bluetooth restart
 
 
+also: 
+
+sudo hciconfig hci0 sspmode 1
+sudo hciconfig hci0 down
+sudo hciconfig hci0 up
+
 ---------------------
 from:  
 http://linuxforever.info/
